@@ -1,3 +1,16 @@
+<h1>Sudoku Playable Game</h1> 
+<h3>How to run:</h3>
+<ul>
+  <li>Uncertain</li>
+</ul>
+<h3>To Do List:</h3>
+<ul>
+  <li>Make sure game is playable on browser and files are organized well</li>
+  <li>Make different starting board options of variable difficulty</li>
+  <li>Make sudoku game solver</li>
+  <li>Make highlighting feature where numbers anr row/col are highlighted when clicked</li>
+</ul>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
