@@ -9,7 +9,10 @@
   <li>Make different starting board options of variable difficulty</li>
   <li>Make sudoku game solver</li>
   <li>Make highlighting feature where numbers anr row/col are highlighted when clicked</li>
+  <li>Make feature to note which numbers may be in each square</li>
 </ul>
+
+<h4>How I got started: https://create-react-app.dev/docs/getting-started/</h4>
 
 # Getting Started with Create React App
 

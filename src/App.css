@@ -3,25 +3,40 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: Helvetica;
   margin: 20px;
   padding: 0;
 }
 
-.filledSquare {
-  background: #fff;
-  font-size: 36px;
-  font-weight: bold;
-  height: 100%;
-  text-align: center;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.square {
+.notFilledSquare {
   background: #fff;
   border: 2px solid #999;
+  height: 33.3333%;
+  width: 33.3333%;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.filledNotGivenSquare {
+  background: #fff;
+  border: 2px solid #999;
+  color: black;
+  font-size: 36px;
+  text-align: center;
+  align-items: center;
+  height: 33.3333%;
+  width: 33.3333%;
+  display: inline-block;
+  vertical-align: bottom;
+}
+.filledGivenSquare {
+  background: #fff;
+  border: 2px solid #999;
+  color: cornflowerblue;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  align-items: center;
   height: 33.3333%;
   width: 33.3333%;
   display: inline-block;
