@@ -15,6 +15,9 @@ body {
   width: 33.3333%;
   display: inline-block;
   vertical-align: bottom;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 .filledNotGivenSquare {
@@ -28,7 +31,11 @@ body {
   width: 33.3333%;
   display: inline-block;
   vertical-align: bottom;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
+
 .filledGivenSquare {
   background: #fff;
   border: 2px solid #999;
@@ -41,6 +48,9 @@ body {
   width: 33.3333%;
   display: inline-block;
   vertical-align: bottom;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 .box {
@@ -50,13 +60,29 @@ body {
   width: 33.3333%;
   display: inline-block;
 }
+
+.highlightBox {
+  background: #afe1ff;
+}
+
 .bigBox {
   background: #fff;
   height: 33.3333%;
   width: 100%;
 }
+
 .border {
   border: 2px solid #000000;
   height: 600px;
   width: 600px;
+}
+
+input[type=text] {
+  background: transparent;
+  border: none;
+  font-size: 36px;
+  text-align: center;
+  align-items: center;
+  width: 60px;
+  pattern: "[0-9]{1}";
 }

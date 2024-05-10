@@ -12,32 +12,33 @@ interface EmptyTile {
 
 type Tile = FilledTile | EmptyTile;
 
+// Creates the formatting of each tile based on the type of tile that it is
+// holds the features to edit tiles and click to highlight tiles
 function TileComponent(props: { tile: Tile; setTile: (tile: Tile) => void }) {
-  if (props.tile.digit === null) {
-    return <div className="notFilledSquare" />;
-  } else if (props.tile.given === true) {
-    return <div className="filledGivenSquare"> {props.tile.digit}</div>;
-  } else {
-    // return <div className="filledNotGivenSquare"> {props.tile.digit}</div>;
-    return (
-      <div
-        className="filledNotGivenSquare"
-        onClick={() => {
-          if (props.tile.digit !== null) {
-            props.setTile({
-              ...props.tile,
-              digit: props.tile.digit + 1,
-            });
-            console.log(props.tile.digit);
-          }
-        }}
-      >
-        {props.tile.digit}
-      </div>
-    );
+  const [highlight, setHighlight] = React.useState(false);
+  function highlightClick() {
+    setHighlight(!highlight);
   }
+  let className;
+  if (props.tile.digit === null) {
+    className = "notFilledSquare";
+  } else if (props.tile.given === true) {
+    className = "filledGivenSquare";
+  } else {
+    className = "filledNotGivenSquare";
+  }
+  if (highlight) {
+    className += " highlightBox";
+  }
+  return (
+    <div className={className} onClick={highlightClick}>
+      {props.tile.digit}
+    </div>
+  );
 }
 
+// This function builds the 3x3 box of tiles and calls upon tile component for the
+// individual formatting of each tile
 function Box(props: {
   index: number;
   gameState: Tile[];
@@ -60,11 +61,12 @@ function Box(props: {
   return <div className="box">{tiles}</div>;
 }
 
+// This function fills the board with the pre-set/given tiles
 function initialGameState(): Tile[] {
   const gameState = new Array<Tile>(81).fill({ digit: null });
-  for (let i = 0; i < 81; i++) {
+  /*for (let i = 0; i < 81; i++) {
     gameState[i] = { digit: 0, given: false };
-  }
+  }*/
   // EASY STARTING BOARD
   gameState[1] = { digit: 3, given: true };
   gameState[8] = { digit: 1, given: true };
@@ -108,13 +110,17 @@ function initialGameState(): Tile[] {
 }
 
 export function App() {
+  //
   const [gameState, setGameState] = React.useState(initialGameState());
+  // Set Tile puts a new number in the corresponding tile and
+  // updates the game board
   const setTile = (index: number, tile: Tile) => {
     const newGame = gameState.slice();
     newGame[index] = tile;
     setGameState(newGame);
   };
   return (
+    // This nested set of divs creates the game board grouping 3x3 boxes as one "Box"
     <div className="border">
       <div className="bigBox">
         <Box index={0} gameState={gameState} setTile={setTile} />
